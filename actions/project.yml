@@ -1,0 +1,22 @@
+on: pull_request
+
+jobs:
+  eslint:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Acessa repositorio remoto.
+      uses: actions/checkout@v2 
+    
+    - name: Instala o Node V12.
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+
+
+    - name: instala as dependências
+      run: npm install
+
+    - name: finalmente executa o lint
+      run: npx eslint .
+
+
